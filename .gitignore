@@ -1,0 +1,36 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore Django migration files
+*/migrations/*
+
+# Ignore database files
+*.sqlite3
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.o
+*.so
+*.a
+*.out
+
+# Ignore other unnecessary files
+*.bak
+*.tmp
