@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}MiniBlog{% endblock %}
+{% block content %}
+    <h1>MiniBlog</h1>
+    <p>Welcome to my MiniBlog Django project. Here you can find all the posts that I have written.</p>
+    {% if blog_posts %}
+        <div class="first-post card mb-4 shadow-sm">
+            <img src="https://via.placeholder.com/800x400" class="card-img-top" alt="First post image">
+            <div class="card-body">
+                <h2 class="card-title">{{ blog_posts.0.title }}</h2>
+                <a href="{% url 'view_blog_post' blog_posts.0.id %}" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+        <div class="post-grid row">
+            {% for post in blog_posts|slice:"1:" %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="https://via.placeholder.com/200x100" class="card-img-top" alt="Post image">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ post.title }}</h3>
+                            <a href="{% url 'view_blog_post' post.id %}" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No posts available.</p>
+    {% endif %}
+{% endblock %}
